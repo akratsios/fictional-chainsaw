@@ -1,5 +1,6 @@
 # fictional-chainsaw
-
+(for best results, use firefox)
+<br>
 ### Source
 http://www.scribd.com/doc/295502565/NBC-WSJ-January-Poll<br>
 	<blockquote> This data source shows the percentage of voters who chose certain options regarding the major republican candidates. We can use data visualization to see how each candidate's popularity changes over time.
