@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Diverging Stacked Bar Chart with D3.js</title>
+<title>Candidate Support Over Time</title>
 <style>
 
 body {
@@ -39,7 +39,7 @@ var x = d3.scale.linear()
     .rangeRound([0, width]);
 
 var color = d3.scale.ordinal()
-    .range(["#c7001e", "#cccccc", "#086fad"]);
+    .range(["#E64D43", "#cccccc", "#63AEC7"]);
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -58,16 +58,16 @@ var svg = d3.select("#figure").append("svg")
 
   color.domain(["Would support", "Neither", "Would not support"]);
 
-  d3.csv("trump_data.csv", function(error, data) {
+  d3.csv("cruz_data.csv", function(error, data) {
 
   data.forEach(function(d) {
     // calc percentages
-    d["Would not support"] = parseInt(d["Would not support"]);
-    d["Neither"] = parseInt(d["Neither"])+parseInt(d["Don't know name"]);
-    d["Would support"] = parseInt(d["Would support"]);
-    var x0 = -1*(parseInt(d["Neither"])/2+parseInt(d["Would not support"]));
-    var idx = 0;
-    d.boxes = color.domain().map(function(name) { return {month: d["Month"], name: name, x0: x0, x1: x0 += +d[name], N: d.N, n: idx += 1}; });
+    d["Would not support"] = parseInt(d[1]);
+    d["Neither"] = parseInt(d[2]);
+    d["Would support"] = parseInt(d[3]);
+    var x0 = -1*(parseInt(d["Neither"])/2+parseInt(d["Would support"]));
+    var idx = 4;
+    d.boxes = color.domain().map(function(name) { return {month: d["Month"], name: name, x0: x0, x1: x0 += +d[name], n: d[idx -= 1]}; });
     console.log(d);
   });
 
@@ -131,7 +131,6 @@ var svg = d3.select("#figure").append("svg")
       .attr("y2", height);
 
   var startp = svg.append("g").attr("class", "legendbox").attr("id", "mylegendbox");
-  // this is not nice, we should calculate the bounding box and use that
   var legend_tabs = [0, 120, 200, 375, 450];
   var legend = startp.selectAll(".legend")
       .data(color.domain().slice())
