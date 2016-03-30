@@ -23,15 +23,36 @@ body {
 
 <body>
 <h1 style="font-size: 40px">Republican Candidate Support Ratings Over Time</h1>
+<!-- 
+<button onclick="cruzFunction()">Display Cruz</button>
+<button onclick="trumpFunction()">Display Trump</button>
+-->
+
 <h2 style="margin-left:50px; font-size: 30px">Ted Cruz</h3>
 <div id="figure" style="margin-bottom: 50px;"></div>
+
 <h2 style="margin-left:50px; font-size: 30px">Donald Trump</h3>
-
-
 <div id="figure2" style="margin-bottom: 50px;"></div>
 
+
+
+
+
+<!-- Cruz Stuff -->
 <script>
-var margin = {top: 50, right: 20, bottom: 10, left: 65},
+
+
+/*var counter1 = 1;
+
+function cruzFunction() {
+
+if (counter1 == 1){
+
+  counter1 = 2;
+  */
+
+
+    var margin = {top: 50, right: 20, bottom: 10, left: 65},
     width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -171,11 +192,31 @@ var svg = d3.select("#figure").append("svg")
 
 
 });
+
+
+//}
+//}
 </script>
 
+
+
+
+
+<!-- Trump Stuff -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
 <script>
-var margin = {top: 50, right: 20, bottom: 10, left: 65},
+
+/*var counter2 = 1;
+
+function trumpFunction() {
+
+if (counter2 == 1){
+
+  counter2 = 2;
+  */
+
+
+    var margin = {top: 50, right: 20, bottom: 10, left: 65},
     width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -315,6 +356,18 @@ var svg = d3.select("#figure2").append("svg")
 
 
 });
+
+
+
+//}
+//}
+
 </script>
+
+
+
+
+
+
 </body>
 </html>
